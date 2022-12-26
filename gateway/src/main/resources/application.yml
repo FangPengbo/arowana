@@ -1,0 +1,23 @@
+server:
+  port: 20001
+
+eureka:
+  instance:
+    #将自己的IP注册到Eureka上
+    prefer-ip-address: true
+  client:
+    #Eurkea服务端地址
+    service-url:
+      defaultZone: http://localhost:20000/eureka/
+
+spring:
+  application:
+    name: Gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          #开启自动发现服务
+          enabled: true
+          #使用小写服务名路由转发
+          lower-case-service-id: true
